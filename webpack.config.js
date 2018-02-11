@@ -12,6 +12,9 @@ var config = {
     path: BUILD_DIR,
     filename: 'js/bundle.js',
   },
+  devServer: {
+    historyApiFallback: true
+  },
   module : {
     loaders : [
       {
