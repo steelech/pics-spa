@@ -1,24 +1,5 @@
 import React from 'react';
-
-const handleErrors = (response) => {
-  if (!response.ok) {
-    throw Error(JSON.stringify(response));
-  }
-  return response;
-}
-
-const createResponseObj = (res) => {
-  return new Promise((resolve, reject) => {
-    res.json()
-      .then((responseBody) => {
-        resolve({
-          body: responseBody,
-          status: res.status,
-          ok: res.ok
-        })
-      })
-  })
-}
+import { login } from '../utils/authentication';
 
 class Login extends React.Component {
   constructor(props) {
@@ -28,29 +9,8 @@ class Login extends React.Component {
       password: ''
     }
   }
-  authenticate() {
-    return new Promise((resolve, reject) => {
-      var responseObj = {};
-      fetch('http://localhost:5000/login', {
-        method: 'POST',
-        body: JSON.stringify(this.state),
-        headers: new Headers({
-          'Content-Type': 'application/json'
-        })
-
-      })
-      .then(createResponseObj)
-      .then(handleErrors)
-      .catch(err => {
-        reject(JSON.parse(err.message))
-      })
-      .then(response => {
-        resolve(response)
-      })
-    });
-  }
   handleAuthenticationAttempt() {
-    this.authenticate()
+    login(this.state)
       .then((response) => {
         this.props.onAuthenticate(response.body);
       })
