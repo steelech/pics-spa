@@ -1,35 +1,34 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-const Home = () => {
-  return (
-    <div>
-      Home
-    </div>
-  )
-}
-
-const Login = () => {
-  return (
-    <div>
-      Login
-    </div>
-  )
-}
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import Login from './layout/Login';
+import Base from './layout/Base';
+import { Auth, PrivateRoute, UnAuthenticatedRoute } from './routing';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      authenticated: false,
+    }
+  }
   render () {
-    console.log('rendering stuff')
     return (
       <div>
-        <Route path="/login" component={Login} />
-        <Route exact path="/" component={Home} />
+        <UnAuthenticatedRoute exact path="/login" component={Login} />
+        <PrivateRoute
+          exact
+          path="/"
+          component={Base}
+          componentProps={{
+          }}
+        />
       </div>
     )
   }
 }
 
+export { Auth };
 
 render(
   <Router>
