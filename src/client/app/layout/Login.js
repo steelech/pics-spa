@@ -1,5 +1,6 @@
 import React from 'react';
 import { login } from '../utils/authentication';
+import LoginForm from '../components/login/LoginForm';
 
 class Login extends React.Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class Login extends React.Component {
       password: ''
     }
   }
-  handleAuthenticationAttempt() {
-    login(this.state)
+  handleAuthenticationAttempt(state) {
+    login(state)
       .then((response) => {
         this.props.onAuthenticate(response.body);
       })
@@ -31,21 +32,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        Login
-        <input
-          placeholder="username"
-          value={this.state.username}
-          onChange={(e) => this.changeUsername(e)}
-        />
-        <input
-          type='password'
-          placeholder="password"
-          value={this.state.password}
-          onChange={(e) => this.changePassword(e)}
-        />
-        <button onClick={() => this.handleAuthenticationAttempt()}>
-          Submit
-        </button>
+        <LoginForm onLogin={(state) => this.handleAuthenticationAttempt(state)}/>
       </div>
     )
   }
