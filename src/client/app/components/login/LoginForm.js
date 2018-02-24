@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../../styles/components/login/login-form.less';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -23,22 +24,42 @@ class LoginForm extends React.Component {
   }
   render() {
     return (
-      <div>
-        Login
-        <input
-          placeholder="username"
-          value={this.state.username}
-          onChange={(e) => this.handleUsernameChange(e)}
-        />
-        <input
-          type='password'
-          placeholder="password"
-          value={this.state.password}
-          onChange={(e) => this.handlePasswordChange(e)}
-        />
-        <button onClick={() => this.handleSubmit()}>
-          Submit
-        </button>
+      <div className='login-form'>
+        <div className='login-form-header'>
+          <h2>Login</h2>
+        </div>
+        <div className='login-form-inputs'>
+          <div className='login-form-username'>
+            <div className='input-icon'>
+              <i className="fa fa-user"></i>
+            </div>
+            <input
+              autoFocus
+              placeholder="Username"
+              value={this.state.username}
+              onChange={(e) => this.handleUsernameChange(e)}
+            />
+          </div>
+          <div className='login-form-password'>
+            <div className='input-icon'>
+              <i className="fa fa-lock"></i>
+            </div>
+            <input
+              type='password'
+              placeholder="Password"
+              value={this.state.password}
+              onChange={(e) => this.handlePasswordChange(e)}
+            />
+          </div>
+        </div>
+        <div className='login-form-submit'>
+          <div
+            className='login-submit-button'
+            onClick={() => this.handleSubmit()}
+          >
+            Submit
+          </div>
+        </div>
       </div>
     )
   }

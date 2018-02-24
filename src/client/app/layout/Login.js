@@ -1,6 +1,7 @@
 import React from 'react';
 import { login } from '../utils/authentication';
 import LoginForm from '../components/login/LoginForm';
+import styles from '../../styles/layout/login.less';
 
 class Login extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='login'>
         <LoginForm onLogin={(state) => this.handleAuthenticationAttempt(state)}/>
       </div>
     )
