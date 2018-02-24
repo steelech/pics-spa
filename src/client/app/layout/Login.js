@@ -8,7 +8,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      showForm: true,
     }
   }
   handleAuthenticationAttempt(state) {
@@ -30,10 +31,23 @@ class Login extends React.Component {
       password: e.target.value
     })
   }
+  handleLoginToggle() {
+    this.setState({
+      showForm: !this.state.showForm,
+    })
+  }
   render() {
     return (
       <div className='login'>
-        <LoginForm onLogin={(state) => this.handleAuthenticationAttempt(state)}/>
+        <div class='login-form-toggle'>
+          <i className='fa fa-bars'
+            onClick={() => this.handleLoginToggle()}
+          />
+        </div>
+        {this.state.showForm
+          ? <LoginForm onLogin={(state) => this.handleAuthenticationAttempt(state)}/>
+          : null
+        }
       </div>
     )
   }
