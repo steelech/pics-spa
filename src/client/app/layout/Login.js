@@ -1,6 +1,7 @@
 import React from 'react';
 import { login } from '../utils/authentication';
 import LoginForm from '../components/login/LoginForm';
+import ArbView from '../components/ui/ArbView';
 import styles from '../../styles/layout/login.less';
 
 class Login extends React.Component {
@@ -38,17 +39,14 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div className='login'>
-        <div className='login-form-toggle'>
-          <i className='fa fa-tree'
-            onClick={() => this.handleLoginToggle()}
-          />
-        </div>
+      <ArbView
+        onArbToggle={() => this.handleLoginToggle()}
+      >
         {this.state.showForm
           ? <LoginForm onLogin={(state) => this.handleAuthenticationAttempt(state)}/>
           : null
         }
-      </div>
+      </ArbView>
     )
   }
 }

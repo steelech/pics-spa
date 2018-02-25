@@ -10,6 +10,7 @@ class ArbView extends React.Component {
           <i className='fa fa-tree'
             onClick={() => this.props.onArbToggle()}
           />
+          {this.props.children}
         </div>
       </div>
     )
