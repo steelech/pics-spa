@@ -39,8 +39,8 @@ class Login extends React.Component {
   render() {
     return (
       <div className='login'>
-        <div class='login-form-toggle'>
-          <i className='fa fa-bars'
+        <div className='login-form-toggle'>
+          <i className='fa fa-tree'
             onClick={() => this.handleLoginToggle()}
           />
         </div>
