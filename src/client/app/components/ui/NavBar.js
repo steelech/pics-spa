@@ -6,14 +6,22 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className='nav-bar'>
-        <div className='sign-out-button'>
-          <i className='fa fa-sign-out'
-            onClick={this.props.onLogOut}
+        <div className='pics-button'>
+          <i className='fa fa-camera-retro'
+          />
+        </div>
+        <div className='music-button'>
+          <i className='fa fa-music'
           />
         </div>
         <div className='toggle-button'>
           <i className='fa fa-tree'
             onClick={this.props.onArbToggle}
+          />
+        </div>
+        <div className='sign-out-button'>
+          <i className='fa fa-sign-out'
+            onClick={this.props.onLogOut}
           />
         </div>
       </div>
