@@ -55,10 +55,12 @@ class PrivateRoute extends React.Component {
 
 class UnAuthenticatedRoute extends React.Component {
   onAuthenticate(token) {
-    Auth.authenticate(token);
-    this.setState({
-      authenticated: true
-    });
+    Auth.authenticate(token)
+      .then(() => {
+        this.setState({
+          authenticated: true
+        });
+      });
   }
   render() {
     const component = () => {
@@ -72,7 +74,7 @@ class UnAuthenticatedRoute extends React.Component {
           />
         ) : (
           <this.props.component
-            onAuthenticate={(res) => this.onAuthenticate(res.token)}
+            onAuthenticate={(res) => this.onAuthenticate(res)}
             {...this.props.componentProps}
           />
         )
