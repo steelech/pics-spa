@@ -15,17 +15,15 @@ class App extends React.Component {
   }
   render () {
     return (
-      <div>
-        <Switch>
-          <UnAuthenticatedRoute exact path="/login" component={Login} />
-          <PrivateRoute
-            path="/"
-            component={Base}
-            componentProps={{
-            }}
-          />
-        </Switch>
-      </div>
+      <Switch>
+        <UnAuthenticatedRoute exact path="/login" component={Login} />
+        <PrivateRoute
+          path="/"
+          component={Base}
+          componentProps={{
+          }}
+        />
+      </Switch>
     )
   }
 }
