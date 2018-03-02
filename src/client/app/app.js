@@ -1,9 +1,9 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";
 import Login from './layout/Login';
 import Base from './layout/Base';
-import { Auth, PrivateRoute, UnAuthenticatedRoute } from './routing';
+import { PrivateRoute, UnAuthenticatedRoute } from './routing';
 import 'font-awesome/less/font-awesome.less';
 
 class App extends React.Component {
@@ -16,20 +16,19 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <UnAuthenticatedRoute exact path="/login" component={Login} />
-        <PrivateRoute
-          exact
-          path="/"
-          component={Base}
-          componentProps={{
-          }}
-        />
+        <Switch>
+          <UnAuthenticatedRoute exact path="/login" component={Login} />
+          <PrivateRoute
+            path="/"
+            component={Base}
+            componentProps={{
+            }}
+          />
+        </Switch>
       </div>
     )
   }
 }
-
-export { Auth };
 
 render(
   <Router>
