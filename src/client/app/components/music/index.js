@@ -6,7 +6,14 @@ class MusicIndex extends React.Component {
   render() {
     return (
       <div className='music-index'>
-        Music
+        <div className='music-index-header'>
+          <div className='header-text'>
+            Music
+          </div>
+        </div>
+        <div className='music-index-content'>
+          Content
+        </div>
       </div>
     )
   }

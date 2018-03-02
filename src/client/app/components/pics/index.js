@@ -5,7 +5,14 @@ class PicsIndex extends React.Component {
   render() {
     return (
       <div className='pics-index'>
-        Pics
+        <div className='pics-index-header'>
+          <div className='header-text'>
+            Pictures
+          </div>
+        </div>
+        <div className='pics-index-content'>
+          Content
+        </div>
       </div>
     )
   }
