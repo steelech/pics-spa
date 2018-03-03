@@ -16,7 +16,7 @@ const Auth = {
     })
   },
   logout: () => {
-    localStorage.removeItem('jwt');
+    localStorage.clear()
   }
 }
 

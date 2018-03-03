@@ -15,17 +15,14 @@ class Base extends React.Component {
     }
   }
   logOut() {
-    console.log('logging out');
     this.props.onLogout();
   }
   arbToggle() {
-    console.log('toggle');
     this.setState({
       showArb: !this.state.showArb,
     })
   }
   render() {
-    debugger
     return (
       <div className='base'>
         {
