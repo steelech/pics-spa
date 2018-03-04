@@ -3,7 +3,7 @@ import AWS from 'aws-sdk';
 
 const Auth = {
   isAuthenticated: () => {
-    return localStorage.getItem('jwt');
+    return !!localStorage.getItem('jwt');
   },
   authenticate: (token) => {
     return new Promise((resolve, reject) => {

@@ -5,8 +5,6 @@ import PicsIndex from '../components/pics/index';
 import MusicIndex from '../components/music/index';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
-import { PrivateRoute } from '../routing';
-
 class Base extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +34,7 @@ class Base extends React.Component {
                onLogOut={() => this.logOut()}
                onArbToggle={() => this.arbToggle()}
                />
-              <PrivateRoute
+              <Route
                 exact
                 path='/'
                 component={() => (
@@ -47,11 +45,11 @@ class Base extends React.Component {
                   />
                 )}
               />
-              <PrivateRoute
+              <Route
                 path="/pics"
                 component={PicsIndex}
               />
-              <PrivateRoute
+              <Route
                 path="/music"
                 component={MusicIndex}
               />
